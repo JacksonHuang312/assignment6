@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    padding: 20px;
+  }
+  
+  .title {
+    position: relative;
+    color: white;
+    margin: 0;
+    text-align: center;
+    font-size: 70px;
+  }
+
+  .buttons {
+    column-gap: 20px;
+    display: flex;
+    justify-content: flex-end; 
+    margin-left: 10px;
+  }
+  
+  .login-button,
+  .register-button {
+    padding: 15px 30px;
+    border: 2px solid gray;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    outline: none;
+    position: relative;
+    overflow: hidden;
+    font-weight: bold;
+    width: auto
+  }
+  
+  .login-button:hover,
+  .register-button:hover {
+    border-color: #666666;
+    background: #292929;
+  }

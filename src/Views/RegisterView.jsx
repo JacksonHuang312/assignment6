@@ -6,6 +6,19 @@ import Footer from "../components/Footer";
 function Register() {
     const navigate = useNavigate();
 
+    const registerInputs = [
+        { type: "text", placeholder: "First Name" },
+        { type: "text", placeholder: "Last Name" },
+        { type: "email", placeholder: "Email" },
+        { type: "password", placeholder: "Password" },
+        { type: "password", placeholder: "Re-enter Password" }
+    ];
+
+    const genres = [
+        "Sci-Fi", "Thriller", "Adventure", "Family", "Animation",
+        "Action", "History", "Fantasy", "Horror", "Comedy"
+    ];
+
     const handleSubmit = (e) => {
         e.preventDefault();
         navigate('/movies');
@@ -18,20 +31,19 @@ function Register() {
                 <div className="Register-box">
                     <h2>Register to Continue</h2>
                     <form onSubmit={handleSubmit}>
-                        <div className="Register-group">
-                            <input type="text" placeholder="First Name" required />
-                        </div>
-                        <div className="Register-group">
-                            <input type="text" placeholder="Last Name" required />
-                        </div>
-                        <div className="Register-group">
-                            <input type="email" placeholder="Email" required />
-                        </div>
-                        <div className="Register-group">
-                            <input type="password" placeholder="Password" required />
-                        </div>
-                        <div className="Register-group">
-                            <input type="password" placeholder="Re-enter Password" required />
+                        {registerInputs.map((input, index) => (
+                            <div className="Register-group" key={index}>
+                                <input type={input.type} placeholder={input.placeholder} required />
+                            </div>
+                        ))}
+                        <div className="Genre-select">
+                            <h1>Select at least 5 Genres</h1>
+                            {genres.map(genre => (
+                                <div className="Genre-select-group" key={genre}>
+                                    <input type="checkbox" id={genre} name={genre} value={genre} />
+                                    <label htmlFor={genre}>{genre}</label>
+                                </div>
+                            ))}
                         </div>
                         <button type="submit" className="Register-button">Register</button>
                     </form>

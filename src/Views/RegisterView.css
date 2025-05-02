@@ -84,3 +84,62 @@
     outline: none;
     border-color: #666666;
 }
+
+/* ...existing code... */
+
+.Genre-select {
+    background-color: #2c2c2c;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 30px;
+}
+
+.Genre-select h1 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.Genre-select-group {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    padding: 8px;
+    background-color: #1a1a1a;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.Genre-select-group:hover {
+    background-color: #333333;
+}
+
+.Genre-select-group input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    cursor: pointer;
+    accent-color: #ff0000;
+}
+
+.Genre-select-group label {
+    color: white;
+    font-size: 1rem;
+    cursor: pointer;
+    user-select: none;
+}
+
+.Genre-select-group input[type="checkbox"]:checked + label {
+    color: #ff0000;
+    font-weight: bold;
+}
+
+.error-message {
+    color: #ff0000;
+    background-color: rgba(255, 0, 0, 0.1);
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+    text-align: center;
+}

@@ -1,18 +1,28 @@
 import { useNavigate } from "react-router-dom";
 import "./RegisterView.css";
+import { Link } from 'react-router-dom';
 import Header from "../components/Header";
 import Footer from "../components/Footer";
+import { useRef } from "react";
+import { useStoreContext } from "../Context";
 
 function Register() {
+    const {
+        setFirst,
+        setLast,
+        setEmail,
+        setPassword,
+        setSelected,
+        setCurrentGenre
+      } = useStoreContext();
+
     const navigate = useNavigate();
 
-    const registerInputs = [
-        { type: "text", placeholder: "First Name" },
-        { type: "text", placeholder: "Last Name" },
-        { type: "email", placeholder: "Email" },
-        { type: "password", placeholder: "Password" },
-        { type: "password", placeholder: "Re-enter Password" }
-    ];
+    const firstName = useRef('');
+    const lastName = useRef('');
+    const email = useRef('');
+    const password = useRef('');
+    const confirmedPassword = useRef('');
 
     const genres = [
         "Sci-Fi", "Thriller", "Adventure", "Family", "Animation",
@@ -21,6 +31,25 @@ function Register() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        const selectedGenres = Array.from(document.querySelectorAll('.Genre-select input:checked')).map(input => input.value);
+        if (selectedGenres.length < 5) {
+            alert("Please select at least 5 genres.");
+            return;
+        }
+
+        if (confirmedPassword.current.value != password.current.value) {
+            alert("Your passwords don't match!");
+            return;
+          }
+      
+          setFirst(firstName.current.value);
+          setLast(lastName.current.value);
+          setEmail(email.current.value);
+          setPassword(password.current.value);
+          setSelected(selectedGenres);
+    
+
         navigate('/movies');
     };
 
@@ -31,11 +60,21 @@ function Register() {
                 <div className="Register-box">
                     <h2>Register to Continue</h2>
                     <form onSubmit={handleSubmit}>
-                        {registerInputs.map((input, index) => (
-                            <div className="Register-group" key={index}>
-                                <input type={input.type} placeholder={input.placeholder} required />
-                            </div>
-                        ))}
+                        <div className="Register-group">
+                            <input type="text" placeholder="First Name" ref={firstName} required />
+                        </div>
+                        <div className="Register-group">
+                            <input type="text" placeholder="Last Name" ref={lastName} required />
+                        </div>
+                        <div className="Register-group">
+                            <input type="email" placeholder="Email" ref={email} required />
+                        </div>
+                        <div className="Register-group">
+                            <input type="password" placeholder="Password" ref={password} required />
+                        </div>
+                        <div className="Register-group">
+                            <input type="password" placeholder="Re-enter Password" ref={confirmedPassword} required />
+                        </div>
                         <div className="Genre-select">
                             <h1>Select at least 5 Genres</h1>
                             {genres.map(genre => (

@@ -8,6 +8,9 @@ import MovieView from "./Views/MovieView.jsx";
 import DetailView from "./Views/DetailView.jsx";
 import GenreView from "./Views/GenreView.jsx";
 import ErrorView from "./Views/ErrorView.jsx";
+import SettingsView from "./Views/SettingsView.jsx";
+import SearchView from "./Views/SearchView.jsx";
+import CartView from "./Views/CartView.jsx";
 
 function App() {
   return (

@@ -1,8 +1,15 @@
 .header {
     display: flex;
-    justify-content: space-between; 
+    justify-content: space-between;
     align-items: center;
     padding: 20px;
+    background-color: black;
+  }
+  
+  .header-content {
+    display: flex;
+    align-items: center;
+    gap: 24px;
   }
   
   .title {
@@ -11,34 +18,40 @@
     margin: 0;
     text-align: center;
     font-size: 70px;
-  }
-
-  .buttons {
-    column-gap: 20px;
-    display: flex;
-    justify-content: flex-end; 
-    margin-left: 10px;
+    cursor: pointer;
+    transition: color 0.2s ease;
   }
   
-  .login-button,
-  .register-button {
-    padding: 15px 30px;
+  .title:hover {
+    color: #ff0000;
+  }
+  
+  .welcome-message {
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  
+  .buttons {
+    display: flex;
+    gap: 12px;
+  }
+  
+  .nav-button {
+    padding: 12px 24px;
     border: 2px solid gray;
     background-color: #1a1a1a;
-    color: #ffffff;
+    color: white;
     font-size: 1rem;
+    font-weight: bold;
     cursor: pointer;
     border-radius: 20px;
     transition: all 0.2s ease;
-    outline: none;
-    position: relative;
-    overflow: hidden;
-    font-weight: bold;
-    width: auto
+    white-space: nowrap;
   }
   
-  .login-button:hover,
-  .register-button:hover {
+  .nav-button:hover {
     border-color: #666666;
-    background: #292929;
+    background-color: #292929;
   }

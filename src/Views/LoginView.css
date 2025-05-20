@@ -64,3 +64,20 @@
 .login-button:hover {
     background-color: #cc0000;
 }
+
+.register-prompt {
+    color: #cccccc;
+    text-align: center;
+    margin-top: 20px;
+    font-size: 1rem;
+}
+
+.register-link {
+    color: #ff0000;
+    cursor: pointer;
+    transition: color 0.2s ease;
+}
+
+.register-link:hover {
+    color: #cc0000;
+}

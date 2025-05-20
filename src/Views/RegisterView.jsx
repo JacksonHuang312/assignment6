@@ -13,7 +13,8 @@ function Register() {
         setEmail,
         setPassword,
         setSelected,
-        setCurrentGenre
+        setCurrentGenre,
+        setLoggedIn
       } = useStoreContext();
 
     const navigate = useNavigate();
@@ -48,7 +49,7 @@ function Register() {
           setEmail(email.current.value);
           setPassword(password.current.value);
           setSelected(selectedGenres);
-    
+          setLoggedIn(true); // Set login state to true after successful registration
 
         navigate('/movies');
     };

@@ -1,6 +1,6 @@
 import './App.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { StoreProvider } from "./Context/index.jsx"; // Add this import
+import { StoreProvider } from "./Context/index.jsx";
 import HomeView from "./Views/HomeView.jsx";
 import RegisterView from "./Views/RegisterView.jsx";
 import LoginView from "./Views/LoginView.jsx";
@@ -23,7 +23,10 @@ function App() {
           <Route path="/movies" element={<MovieView />}>
             <Route path="genre/:genre_id" element={<GenreView />} />
             <Route path="details/:id" element={<DetailView />} />
+            <Route path="search" element={<SearchView />} />
           </Route>
+          <Route path="/settings" element={<SettingsView />} />
+          <Route path="/cart" element={<CartView />} />
           <Route path="*" element={<ErrorView />} />
         </Routes>
       </BrowserRouter>

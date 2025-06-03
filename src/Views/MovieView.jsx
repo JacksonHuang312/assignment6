@@ -2,20 +2,29 @@ import { Outlet, Link } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import "./MovieView.css";
+import { useStoreContext } from "../Context";
 
 function MovieView() {
-    const genres = [
-        { genre: "Sci-Fi", id: 878 },
-        { genre: "Thriller", id: 53 },
-        { genre: "Adventure", id: 12 },
-        { genre: "Family", id: 10751 },
-        { genre: "Animation", id: 16 },
-        { genre: "Action", id: 28 },
-        { genre: "History", id: 36 },
-        { genre: "Fantasy", id: 14 },
-        { genre: "Horror", id: 27 },
-        { genre: "Comedy", id: 35 }
-    ];
+    const { selectedGenres } = useStoreContext();
+    
+    const genreIds = {
+        "Sci-Fi": 878,
+        "Thriller": 53,
+        "Adventure": 12,
+        "Family": 10751,
+        "Animation": 16,
+        "Action": 28,
+        "History": 36,
+        "Fantasy": 14,
+        "Horror": 27,
+        "Comedy": 35
+    };
+
+    // Convert selected genre names to objects with id and genre
+    const selectedGenreObjects = selectedGenres.map(genreName => ({
+        genre: genreName,
+        id: genreIds[genreName]
+    }));
 
     return (
         <div className="app-container">
@@ -23,7 +32,7 @@ function MovieView() {
             <h1 className="movieview-title">Movies by Genre</h1>
             <div className="genre-container">
                 <div className="genre-list">
-                    {genres.map(genre => (
+                    {selectedGenreObjects.map(genre => (
                         <Link
                             key={genre.id}
                             to={`/movies/genre/${genre.id}`}
